@@ -1,0 +1,44 @@
+<script src="/media/js/jquery.cookiePSS.js"></script>
+<script src="/media/js/email-pop-up-settingsPSS.js"></script>
+
+<div class="subs-popup" style="display:none;">
+	<div class="subs-popup-bg-img"></div>
+    <div class="sub-pop-container">
+	<div class="popup-close">x</div>
+
+    	<div class="pop-up-headline pop-msg-1">Receive special offers!</div>    <!-- Change this copy each campaign -->
+        <p class="offer pop-msg-1">Sign up and Save!</p>             <!-- Change this copy each campaign. Ex. FREE Shipping & Handling!  -->
+
+        <p class="small-print pop-msg-1">Enter your email below and we will share all of our special offers with you.</p>
+
+        <div class="pop-msg-1">
+            <form>
+                <input class="popup-input" id="popup-input" type="email" placeholder="Your email" required>
+                <button type="button" class="popup-btn">Sign up!</button>
+                <a class="popup-no-thanks">No thanks</a>
+            </form>
+        </div>
+
+        <div class="pop-msg-2">
+            <div class="pop-up-headline">Savings are on the way! </div>
+            <p class="small-print">We just sent an email to<br/>
+				<span class="pop-email-address-auto"></span>
+				<br/>containing some of our top product.
+			</p>
+            <p class="small-print">Thank you for shopping Pool Supplies Superstore.</p>
+             <div class="popup-shop-btn">Start shopping</div>
+         </div>
+
+		<!-- Add to email list -->
+        <script>
+            jQuery(document).ready(function(){
+                jQuery(".popup-btn").click(function(){
+                    var emailAdd = jQuery('#popup-input').val();
+                    jQuery("#bronto-direct-add").html('<img src="http://enews.poolsuppliessuperstore.com/public/?q=direct_add&fn=Public_DirectAddForm&id=aekalhfwrlftwirixbgylkvqtduwbae&email='+emailAdd+'&list2=0bcd03ec00000000000000000000000b6381&createCookie=1" width="0" height="0" border="0" alt="" />');
+                });
+            });
+        </script>
+        <div id="bronto-direct-add"></div>
+
+    </div>
+</div>
