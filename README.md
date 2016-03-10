@@ -4,3 +4,5 @@ Email Sign-up modal to add emails to BrontoDB with cookie to prevent excessive d
 Connectivity to BrontoDB has been disabled therefor automated email has been disabled.
 
 Cookie is enabled so clear cache to view more than once per 14 days or view in private/incognito window. 
+
+http://mymettle.com/emailPop/
