@@ -5,4 +5,4 @@ Connectivity to BrontoDB has been disabled therefor automated email has been dis
 
 Cookie is enabled so clear cache to view more than once per 14 days or view in private/incognito window. 
 
-http://mymettle.com/emailPop/
+View at : http://www.doheny.com  (Clear browser cache to view again. Sign up at your own risk.)
