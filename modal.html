@@ -1,44 +1,89 @@
-<script src="/media/js/jquery.cookiePSS.js"></script>
-<script src="/media/js/email-pop-up-settingsPSS.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		var queryString = window.location.search;
+		queryString = queryString.substring(1);
+					
+		var queryFirstFour = queryString.substr(0, 4);
+		if (queryFirstFour != "adpo") {
+			(function() {
+				var s = document.createElement('script');
+				s.type = 'text/javascript';
+				s.async = true;
+				s.src = 'http://www.doheny.com/media/js/email-pop-up-script.js';
+				var x = document.getElementsByTagName('script')[0];
+				x.parentNode.insertBefore(s, x);
+			})();						
+		};
+	});	
+</script>
+
+<style>
+	.pop-msg-small-print{
+                font-family: Verdana, Geneva, sans-serif !important;
+                font-size: 12px !important;
+		color: #bbb !important;
+		margin: -40px 0 0 0 !important;
+		font-weight: 100 !important;
+		letter-spacing: .025em !important;
+	}
+</style>
+
+<!--
+<script src="/media/js/jquery.cookieDWW.js"></script>
+<script src="/media/js/email-pop-up-settingsDWW.js"></script>
+-->
 
 <div class="subs-popup" style="display:none;">
-	<div class="subs-popup-bg-img"></div>
     <div class="sub-pop-container">
 	<div class="popup-close">x</div>
 
-    	<div class="pop-up-headline pop-msg-1">Receive special offers!</div>    <!-- Change this copy each campaign -->
-        <p class="offer pop-msg-1">Sign up and Save!</p>             <!-- Change this copy each campaign. Ex. FREE Shipping & Handling!  -->
+    	<div class="pop-up-headline pop-msg-1">Pool Closing Sale</div>      <!-- Change this copy each campaign -->
+        <p class="offer pop-msg-1">Take $10 OFF your order!</p>             <!-- Change this copy each campaign. Ex. FREE Shipping & Handling!  -->
+        <p class="offer pop-msg-small-print">on orders $100 or more</p>     <!-- Change this copy each campaign. Ex. on Orders $100,000,037 or more  -->
 
-        <p class="small-print pop-msg-1">Enter your email below and we will share all of our special offers with you.</p>
-
-        <div class="pop-msg-1">
-            <form>
-                <input class="popup-input" id="popup-input" type="email" placeholder="Your email" required>
-                <button type="button" class="popup-btn">Sign up!</button>
-                <a class="popup-no-thanks">No thanks</a>
-            </form>
-        </div>
-
+	<p class="small-print pop-msg-1">Enter your email to receive details.</p>
+        
+        <form class="pop-msg-1"> 
+            <input class="popup-input" id="popup-input" type="email" placeholder="Your email" required>
+            <p class="pop-pool-type-title">What type of pool do you have? <span class="pop-pool-type-optional">optional</span></p>
+            <div class="pool-type-selection-container">
+                <label for="AGtype" class="control control--checkbox">
+                	<input type="radio" name="poolType" value="AG" class="AGtype" id="AGtype">
+                	<div class="pool-type-pop-div">
+                        <div class="check">&#10003;</div>
+                        Above Ground
+                    </div>
+                </label>
+                <label for="IGtype" class="control control--checkbox">
+                    <input type="radio" name="poolType" value="IG" class="IGtype" id="IGtype">
+                    <div class="pool-type-pop-div">
+                    	<div class="check">&#10003;</div>
+                        In-Ground
+                    </div>
+                </label>
+            </div>
+            <button type="button" class="false-popup-btn">Please enter a valid email</button> 
+            <button type="button" class="popup-btn">Sign up!</button> 
+            <a class="popup-no-thanks">No thanks</a> 
+        </form> 
+        
         <div class="pop-msg-2">
-            <div class="pop-up-headline">Savings are on the way! </div>
-            <p class="small-print">We just sent an email to<br/>
-				<span class="pop-email-address-auto"></span>
-				<br/>containing some of our top product.
-			</p>
-            <p class="small-print">Thank you for shopping Pool Supplies Superstore.</p>
-             <div class="popup-shop-btn">Start shopping</div>
+            <div class="pop-up-headline">Savings are on the way!</div> 
+            <p class="small-print">We just sent an email to <span class="pop-email-address-auto"></span> containing the required promo code and offer details.</p>
+            <p class="small-print">Thank you for shopping Doheny's and enjoy your savings.</p>
+             <div class="popup-shop-btn">Start shopping</div> 
          </div>
-
-		<!-- Add to email list -->
-        <script>
-            jQuery(document).ready(function(){
-                jQuery(".popup-btn").click(function(){
-                    var emailAdd = jQuery('#popup-input').val();
-                    jQuery("#bronto-direct-add").html('<img src="http://enews.poolsuppliessuperstore.com/public/?q=direct_add&fn=Public_DirectAddForm&id=aekalhfwrlftwirixbgylkvqtduwbae&email='+emailAdd+'&list2=0bcd03ec00000000000000000000000b6381&createCookie=1" width="0" height="0" border="0" alt="" />');
-                });
-            });
-        </script>
-        <div id="bronto-direct-add"></div>
-
     </div>
 </div>
+
+
+<script>
+	jQuery(document).on('keyup', '#popup-input', function(e) {
+		if(jQuery( "#popup-input").val().indexOf("@") > -1 && jQuery( "#popup-input").val().indexOf(".") > -1)
+			{
+				jQuery(".pop-pool-type-title, .pool-type-selection-container").animate({opacity: 1},1000);
+				jQuery(".false-popup-btn").hide();
+				jQuery(".popup-btn").fadeIn(1000);
+			}
+	});	
+</script>
